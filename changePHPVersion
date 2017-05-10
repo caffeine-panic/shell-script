@@ -1,0 +1,18 @@
+#!/bin/bash
+
+#显示当前php版本
+phpinfo=`php -v`
+echo "the current PHP version is $phpinfo"
+read -p 'Please enter the version number(php7.1 or php5.6): ' phpVersion
+
+#重建软连接
+`rm -rf /usr/local/bin/php /usr/local/bin/php-config /usr/local/bin/phpize /usr/local/bin/php-fpm`
+
+`ln -s /usr/local/$phpVersion/bin/php /usr/local/bin/php`
+`ln -s /usr/local/$phpVersion/bin/php-config /usr/local/bin/php-config`
+`ln -s /usr/local/$phpVersion/bin/phpize /usr/local/bin/phpize`
+`ln -s /usr/local/$phpVersion/sbin/php-fpm /usr/local/bin/php-fpm`
+
+#重启php-fpm
+`kill -9 $(ps -e|grep php-fpm |awk '{print $1}')`
+`php-fpm`
