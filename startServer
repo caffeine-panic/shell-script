@@ -1,0 +1,8 @@
+#!/bin/bash
+
+echo "starting..."
+php-fpm
+nginx
+redis-server /etc/redis/redis.conf
+mongod --dbpath /opt/mongodb --fork --logpath=/opt/mongodb/log/mongodb.log --auth
+echo "Success!"

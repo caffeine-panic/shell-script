@@ -1,0 +1,2 @@
+#!/bin/bash
+rsync -avz --exclude "README.md" --exclude ".git" /home/wangxiaofool/workspace/shell-script wangxiaochun@192.168.10.36:www/test
