@@ -1,0 +1,4 @@
+.git
+.vscode
+conf/app.conf
+logs/*

@@ -1,0 +1,6 @@
+.git
+storage
+.vscode
+.idea
+bootstrap/cache
+.env
